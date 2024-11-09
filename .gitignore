@@ -1,4 +1,15 @@
+.DS_Store
+Thumbs.db
+Desktop.ini
+.vscode/
+*.pyc
+*.pyo
+__pycache__/
+*.tmp
+*.temp
+*.pem
+*.key
+
 data/
-tensorboard/
 *.log
 *.pt
