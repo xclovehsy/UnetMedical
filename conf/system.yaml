@@ -1,7 +1,11 @@
 seed: 2024
 mode: train
-train_dir: ./data/数据集/train_val
-lable_file: ./data/数据集/train_val/lables.csv
+train_img_dir: ./data/数据集/train
+train_mask_dir: ./data/数据集/train_mask
+val_img_dir: ./data/数据集/val
+val_mask_dir: ./data/数据集/val_mask
+test_img_dir: ./data/数据集/test
+test_mask_dir: ./data/数据集/test_mask
 tensorboard_dir: ./tensorboard
 log_dir: ./log
 output_dir: ./output
@@ -9,7 +13,6 @@ checkpoints_dir: ./checkpoints
 log_step: 5
 
 learning_rate: 0.0001
-train_size: 0.8
 batch_size: 4
-epochs: 20
+epochs: 50
 

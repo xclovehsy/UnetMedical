@@ -38,8 +38,6 @@ def fold_check(config):
         os.mkdir(checkpoints_dir)
 
 
-
-
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--conf', default='conf/system.yaml', help='tuning unet on ..')
@@ -52,7 +50,7 @@ if __name__ == '__main__':
     config.show_data_summary(logger)
     set_env(config.seed)
 
-    data_manager = DataManager(config.train_dir, config.train_size, config.batch_size, config.seed)
+    data_manager = DataManager(config)
     train = Train(config, logger, data_manager)
     if config.mode == 'train':
         logger.info(f'Training')
