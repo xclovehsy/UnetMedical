@@ -95,15 +95,15 @@ class DataManager:
         
         self.train_dataloader = DataLoader(train_dataset, batch_size=config.batch_size, shuffle=True)
         self.val_dataloader = DataLoader(val_dataset, batch_size=config.batch_size, shuffle=False)
-        self.test_dataloader = DataLoader(test_dataset, batch_size=config.batch_size, shuffle=False)
+        self.test_dataloader = DataLoader(test_dataset, batch_size=config.batch_size, shuffle=True)
         
     def get_train_dataloader(self):
         return self.train_dataloader
     
-    def get_val_dataloader(self):
+    def get_valid_dataloader(self):
         return self.val_dataloader
     
-    def get_valid_dataloader(self):
+    def get_test_dataloader(self):
         return self.test_dataloader
         
 

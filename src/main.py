@@ -12,6 +12,7 @@ import pandas as pd
 from tqdm import tqdm
 
 from model.train import Train
+from model.test import Test
 from data.data import DataManager
 
 
@@ -51,13 +52,13 @@ if __name__ == '__main__':
     set_env(config.seed)
 
     data_manager = DataManager(config)
-    train = Train(config, logger, data_manager)
     if config.mode == 'train':
         logger.info(f'Training')
+        train = Train(config, logger, data_manager)
         train.train()
-
     else:
+        test = Test(config, logger, data_manager)
         logger.info(f"Testing")
-
+        test.test()
 
         

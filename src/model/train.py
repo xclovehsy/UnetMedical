@@ -87,9 +87,10 @@ class Train:
                 global_step += 1
                 tr_loss += loss.item()
                 if step % self.config.log_step == 0:
-                    acc = calculate_acc(logits, mask)
-                    precision, recall, f1 = calculate_precision_recall_f1(logits, mask)
-                    iou = calculate_iou(logits, mask)
+                    pred = (torch.sigmoid(logits) > 0.5)
+                    acc = calculate_acc(pred, mask)
+                    precision, recall, f1 = calculate_precision_recall_f1(pred, mask)
+                    iou = calculate_iou(pred, mask)
 
                     self.writer.add_scalar('Train/Loss', loss.item(), global_step)
                     self.writer.add_scalar('Train/Accuracy', acc, global_step)

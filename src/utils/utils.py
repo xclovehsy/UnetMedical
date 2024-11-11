@@ -2,23 +2,20 @@ import torch
 import numpy as np
 from torch import nn
 
-def calculate_iou(pred, target, threshold=0.5):
+def calculate_iou(pred, target):
     """计算二值掩码IoU"""
-    pred = (torch.sigmoid(pred) > threshold)
     intersection = torch.sum(pred * target)
     union = torch.sum(pred) + torch.sum(target) - intersection
     iou = intersection / union
     return iou
 
-def calculate_acc(pred, target, threshold=0.5):
+def calculate_acc(pred, target):
     """计算准确率"""
-    pred = (torch.sigmoid(pred) > threshold)
     return (pred == target).sum() / target.numel()
 
 
-def calculate_precision_recall_f1(pred, target, threshold=0.5):
+def calculate_precision_recall_f1(pred, target):
     """计算精确率，召回率，F1"""
-    pred = (torch.sigmoid(pred) > threshold)
     TP = (pred * target).sum()
     FP = ((pred == 1) & (target == 0)).sum()
     FN = ((pred == 0) & (target == 1)).sum()

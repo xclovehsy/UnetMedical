@@ -1,5 +1,5 @@
 seed: 2024
-mode: train
+mode: test
 train_img_dir: ./data/数据集/train
 train_mask_dir: ./data/数据集/train_mask
 val_img_dir: ./data/数据集/val
@@ -10,9 +10,10 @@ tensorboard_dir: ./tensorboard
 log_dir: ./log
 output_dir: ./output
 checkpoints_dir: ./checkpoints
+test_checkpoint: ./checkpoints/best_unet_checkpoint.pt
 log_step: 5
 
 learning_rate: 0.0001
 batch_size: 4
-epochs: 50
+epochs: 100
 
